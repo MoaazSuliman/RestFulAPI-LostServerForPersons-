@@ -1,42 +1,35 @@
-System For LostPersons.
 
-User: 
+I am a Junior Java Developer with 1 year of experience, and I have recently worked on developing a system for LostPersons. The system includes the following functionalities:
 
-1- Signup : by Name , Email , Phone , Password. ==> System send OTP For Email.
-2- Verify OTP : user verify Enter His OTP That Sent To His Email When He Signedup. 
-	if veify ==> true ==> welcome and go to login.
-	else ==> delete user now.==> he is laying.
-3- Login : Be Email And Password.==> System Check That Email And Password Are In Our Database And This User Verifyed OTP.
+1. User Management:
+   - Users can sign up with their name, email, phone, and password. The system sends an OTP to their email for verification.
+   - Users verify their OTP to proceed with the signup process. If verified, they are welcomed and can proceed to login. Otherwise, the user is deleted as a security measure.
 
-4- User Can Add Finder Post ==> user can say i found this boy or girl ==> Enter (phone , Picture* , Details* , ClothesColor* , AgeForChild).
+2. User Authentication:
+   - Users can log in using their email and password. The system checks if the email and password match the records in the database and verifies that the user has completed the OTP verification process.
 
-5- User Can Add Searcher Post ==> user can say i can't find my little girl if any one see it call me. ==> Enter (pictureForHisLittleGirl , Some Details , herName).
+3. Finder and Searcher Posts:
+   - Users can create finder posts to report that they have found a missing person. They provide details such as phone number, picture, additional information, clothes color, and age for child posts.
+   - Users can create searcher posts to seek help in finding a missing person. They provide a picture of the missing person, additional details, and the person's name.
+   - Posts can be liked by other users, and the system returns the posts ordered by the number of likes received.
 
-#Posts have likes from users.#
-#Returned Posts Ordered By Likes.#
-#System Take Pictures Base64 Then Send It To S3 To Convert It To Url Before Saving It In Database#
+4. Image Processing and Storage:
+   - The system converts uploaded pictures to Base64 format and sends them to an AWS S3 bucket to convert them to URLs. These URLs are then saved in the database for efficient retrieval.
 
-6- User Can Put Like Or Delete His Like For Any Post. 
+5. User Interaction with Posts:
+   - Users can like posts or remove their like from a post.
 
-7- User Can Search By Text ==> Enter His Little Boy Or Girl Name ==> System Have A Good Search ==> Return Any Post Has Name Or Details Like his Little Boy Or Little Girl.
+6. Search Functionality:
+   - Users can search for posts by entering text related to the missing person's name or details. The system performs a thorough search and returns any posts matching the search criteria.
 
-8- User Can Search By Picture :-) ==> Enter His Child Picture ==> And His Child Post If Any One Found Him.
-	==> My System Connect By RestTemplate To Another Python Model AI.
-	1- I Send All Posts Pictures For Model AI Every 3 Hours.
-	2- When User Search By Picture I Send It To Model AI And Get To Me Post Id==> Then I Get All Details About Post And The User He Posts It.
-		And Return It.
- 
+7. Image Recognition:
+   - Users can search for posts by uploading a picture of a missing person. The system uses RestTemplate to connect to a Python AI model. The system periodically sends all post pictures to the AI model for processing.
+   - When a user searches by picture, the system sends the picture to the AI model, retrieves the corresponding post ID, and provides all the details about the post and the user who posted it.
 
-Another Functions :
-	 get , update , delete users
-	 get , update , delete posts.
-	
+Other Features:
+   - The system allows CRUD operations for users and posts.
+   - The project is hosted on AWS, utilizing EC2 for the API, S3 for picture conversion, and RDS for the database.
 
-#I Built This RestAPI Alone In 1 Week.#
+Technology Stack: Spring Boot, Hibernate JPA, MySQL, and following clean code principles such as Single Responsibility and Interface Segregation.
 
-Cloud : AWS (Ec2 ==> For My API) , (S3  ==> To Convert Pictures) , (RDS ==> For Database )
-
-Technology : Spring Boot  , Hibernate Jpa , MySQL   + (Single responsaplity   , Interface segregation   , Clean Code).
-
-Another Develoepr : Bulit Python Model AI And Created End Points.
-Another Developers : Workink To Make It Mobile Application For Flutter.
+This project was a solo endeavor, and I successfully completed it within one week. Additionally, the project involves collaboration with Python developers who built the AI model, and there are plans to develop a mobile application using Flutter.
